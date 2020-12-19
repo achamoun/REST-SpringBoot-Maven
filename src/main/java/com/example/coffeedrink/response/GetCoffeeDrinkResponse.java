@@ -6,7 +6,7 @@ public class GetCoffeeDrinkResponse {
 
 	public GetCoffeeDrinkResponse() {
 
-		this.responseCoffeeDrink = "";
+		this.responseCoffeeDrink = "no name drink";
 	}
 
 	public void setResponseCoffeeDrink(String responseCoffeeDrink) {

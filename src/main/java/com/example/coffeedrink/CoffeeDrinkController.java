@@ -1,6 +1,7 @@
 package com.example.coffeedrink;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,12 +30,10 @@ public class CoffeeDrinkController {
 	}
 
 	@GetMapping("/webservices/getCoffeeDrink")
-	public GetCoffeeDrinkResponse getCoffeeDrink(@RequestParam String ingredient1, @RequestParam String ingredient2) {
+	public GetCoffeeDrinkResponse getCoffeeDrink(@RequestParam List<String> ingredients) {
+		
 		GetCoffeeDrinkResponse response = new GetCoffeeDrinkResponse();
-		ArrayList<String> ingredientList = new ArrayList<String>();
-		ingredientList.add(ingredient1);
-		ingredientList.add(ingredient2);
-		response.setResponseCoffeeDrink(coffeeDrinkFinder.getCoffeeDrink(ingredientList).getCoffeeDrink().toString());
+		response.setResponseCoffeeDrink(coffeeDrinkFinder.getCoffeeDrink(ingredients).getCoffeeDrink().toString());
 		return response;
 	}
 }
